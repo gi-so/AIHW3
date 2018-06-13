@@ -1,7 +1,7 @@
 import time
 import random
 
-ids = ["000000000", "111111111"]
+ids = ["935885178", "203609177"]
 
 
 class PacmanController:
