@@ -1,7 +1,7 @@
 import time
 import random
 
-ids = ["935885178", "203609177"]
+ids = ["000000000", "111111111"]
 
 
 class PacmanController:
@@ -19,6 +19,9 @@ class PacmanController:
         """
 
         "random walk agent"
+        for row in state:
+            print(row)
+        print("________")
         alive = False
         for row in state:
             for cell in row:

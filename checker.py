@@ -201,15 +201,15 @@ class Evaluator:
             self.special_things[color] = next_tile
 
         # poison
-        elif self.state[next_tile] == 77 or self.state[next_tile] == 71:
+        elif self.state[next_tile] == 77 or 70 <= self.state[next_tile] <= 73:
             if self.state[next_tile] == 77:
                 self.state[next_tile] = 10
             else:
-                self.state[next_tile] = 11
+                self.state[next_tile] = 10 + previous_tile_pill_number
             del self.special_things[color]
 
         # ghost got the pacman
-        elif self.state[next_tile] == 66:
+        elif self.state[next_tile] == 66 or self.state[next_tile] == 88:
             self.special_things["pacman"] = "dead"
             self.state[next_tile] = 88
 
