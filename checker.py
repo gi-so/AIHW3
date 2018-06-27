@@ -205,7 +205,7 @@ class Evaluator:
             if self.state[next_tile] == 77:
                 self.state[next_tile] = 10
             else:
-                (self.state[next_tile] = 10 + (self.state[next_tile] % 10
+                self.state[next_tile] = 10 + (self.state[next_tile] % 10)
                 del self.special_things[color]
 
         # ghost got the pacman
