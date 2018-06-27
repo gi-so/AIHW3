@@ -205,8 +205,8 @@ class Evaluator:
             if self.state[next_tile] == 77:
                 self.state[next_tile] = 10
             else:
-                self.state[next_tile] = 10 + previous_tile_pill_number
-            del self.special_things[color]
+                (self.state[next_tile] = 10 + (self.state[next_tile] % 10
+                del self.special_things[color]
 
         # ghost got the pacman
         elif self.state[next_tile] == 66 or self.state[next_tile] == 88:
