@@ -100,17 +100,19 @@ class PacmanController:
         allowed_lst = []
         allowed_lst = self.actions(state)
         if not allowed_lst:
+            self.prev_accumulated_reward = accumulated_reward - 5
+            self.dot_type_check = 0
             return "reset"
         pacman_row, pacman_col = find_pacman(state)
 
         if accumulated_reward is not None:
-            value = accumulated_reward -  self.prev_accumulated_reward
-            print(value)
+            reward = accumulated_reward -  self.prev_accumulated_reward
+            #print(reward)
             if self.dot_type_check != 0:
                 self.dot_amount[self.dot_type_check] = self.dot_amount[self.dot_type_check] + 1
-                self.dot_value[self.dot_type_check]=self.dot_value[self.dot_type_check]+(value-self.dot_value[self.dot_type_check])/self.dot_amount[self.dot_type_check]
+                self.dot_value[self.dot_type_check]=self.dot_value[self.dot_type_check]+((reward-self.dot_value[self.dot_type_check])/self.dot_amount[self.dot_type_check])
                 self.prev_accumulated_reward = accumulated_reward
-        print(self.dot_value)
+        #print(self.dot_value)
         value = -200
         action = None
         for act in allowed_lst:
